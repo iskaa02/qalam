@@ -1,4 +1,4 @@
-package main
+package qalam
 
 import (
 	"regexp"
@@ -7,7 +7,7 @@ import (
 )
 
 func findEmoji(s string) string {
-	emojiT := regexp.MustCompile(emojiTag)
+	emojiT := regexp.MustCompile(emojiTagRegex)
 	return string(emojiT.ReplaceAllFunc([]byte(s), func(b []byte) []byte {
 		key := string(b)
 		key = key[2 : len(key)-2]

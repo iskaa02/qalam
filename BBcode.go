@@ -1,4 +1,4 @@
-package main
+package qalam
 
 import (
 	"regexp"
@@ -10,10 +10,14 @@ type splittedTxt struct {
 	code string
 }
 
+type formattedTxt struct {
+	t              string
+	inheritedCodes []uint
+}
+
 func splitTags(s string) []splittedTxt {
 	firstTag := regexp.MustCompile(openingTagRegex)
 	splits := []splittedTxt{}
-
 OUTER:
 	for {
 		openTagLoc := firstTag.FindAllIndex([]byte(s), -1)
@@ -39,7 +43,7 @@ OUTER:
 				splits = append(splits, beforeTag)
 			}
 			splits = append(splits, splittedTxt{t: s[v[1] : closeTagLoc-len(closeTag)], code: code})
-			if afterTag.t != "" && i == len(openTagLoc)-1 {
+			if afterTag.t != "" && shouldAppendAfterTag(openTagLoc, closeTagLoc, i) {
 				splits = append(splits, afterTag)
 			}
 			s = s[closeTagLoc:]
@@ -51,6 +55,21 @@ OUTER:
 		break
 	}
 	return splits
+}
+func shouldAppendAfterTag(i [][]int, closingLoc int, currentIndex int) bool {
+	if currentIndex == len(i)-1 {
+		return true
+	}
+	currentLoc := i[currentIndex][0]
+	for i, v := range i {
+		if i == currentIndex || currentLoc > v[0] {
+			continue
+		}
+		if closingLoc < v[1] {
+			return false
+		}
+	}
+	return true
 }
 func format(s *formattedTxt) string {
 	splits := splitTags(s.t)

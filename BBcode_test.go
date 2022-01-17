@@ -1,4 +1,4 @@
-package main
+package qalam
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ func TestSplitTags(t *testing.T) {
 	args := []splittedTxt{
 		{t: "normal case", code: "red"},
 		{t: "with no Formating"},
-		{t: "with nested tag [red]nested[/red]", code: "b"},
+		{t: "with nested tag [red]nested[/red] a", code: "b"},
 		{t: "[red]with unclosed tag [?]and with unknown chars[/?]"},
 		{t: "with multiple codes", code: "i b red bg.white strikethrough"},
 	}
@@ -23,11 +23,16 @@ func TestSplitTags(t *testing.T) {
 		}
 		testTxt += fmt.Sprintf("[%v]%v[/%v]", arg.code, arg.t, arg.code)
 	}
+	fmt.Println(testTxt)
 	splits := splitTags(testTxt)
-	fmt.Println(splits, args)
 	require.Equal(t, args, splits)
 }
 
 func TestFormat(t *testing.T) {
-	// format(&formattedTxt{})
+	expected := "[red] red only [bold]red and bold[/bold][i]red and italic[/i][/red]"
+	actual := applyStyles(" red only ", []uint{styles["red"]})
+	actual += applyStyles("red and bold", []uint{styles["red"], styles["bold"]})
+	actual += applyStyles("red and italic", []uint{styles["red"], styles["i"]})
+	expected = format(&formattedTxt{t: expected})
+	require.Equal(t, expected, actual)
 }
