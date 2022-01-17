@@ -28,4 +28,6 @@ func TestSplitTags(t *testing.T) {
 	require.Equal(t, args, splits)
 }
 
-func TestFormat(t *testing.T) {}
+func TestFormat(t *testing.T) {
+	// format(&formattedTxt{})
+}

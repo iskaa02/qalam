@@ -1,5 +1,5 @@
 package main
 
 func main() {
-	Printf("hello world")
+	Printf("[:brick:] this is a brick and this is a [:vampire:]")
 }

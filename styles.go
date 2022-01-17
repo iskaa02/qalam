@@ -8,9 +8,6 @@ type rgb struct {
 	blue  uint
 }
 
-var emojisMap map[string]string = map[string]string{
-	"vampire": "u/2344",
-}
 var styles map[string]uint = map[string]uint{
 	"reset":         0,
 	"none":          0,
