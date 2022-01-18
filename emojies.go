@@ -1,6 +1,6 @@
 package qalam
 
-var emojiesMap map[string]string = map[string]string{
+var emojisMap map[string]string = map[string]string{
 	"man_firefighter":                    "\\u1f468",
 	"flag_new_caledonia":                 "\\u1f1f3",
 	"bug":                                "\\u1f41b",

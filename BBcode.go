@@ -15,6 +15,7 @@ type formattedTxt struct {
 	inheritedCodes []uint
 }
 
+// splitTags split string before and after a bbcode tag and return slice with each splitted tag and its code
 func splitTags(s string) []splittedTxt {
 	firstTag := regexp.MustCompile(openingTagRegex)
 	splits := []splittedTxt{}
@@ -22,18 +23,20 @@ OUTER:
 	for {
 		openTagLoc := firstTag.FindAllIndex([]byte(s), -1)
 		for i, v := range openTagLoc {
+			// triming the brackets off
 			code := s[v[0]+1 : v[1]-1]
 			closeTag := "[/" + code + "]"
 			closeTagLoc := strings.Index(s, closeTag)
+			// if there's no closing tag
 			if closeTagLoc == -1 {
-				nextI := 0
+				nextTagLoc := 0
 				if i == len(openTagLoc)-1 {
-					nextI = len(s)
+					nextTagLoc = len(s)
 				} else {
-					nextI = openTagLoc[i+1][0]
+					nextTagLoc = openTagLoc[i+1][0]
 				}
-				splits = append(splits, splittedTxt{t: s[:nextI]})
-				s = s[nextI:]
+				splits = append(splits, splittedTxt{t: s[:nextTagLoc]})
+				s = s[nextTagLoc:]
 				continue OUTER
 			}
 			closeTagLoc += len(closeTag)
@@ -56,6 +59,8 @@ OUTER:
 	}
 	return splits
 }
+
+// shouldAppendAfterTag checks if this tag is the last.
 func shouldAppendAfterTag(i [][]int, closingLoc int, currentIndex int) bool {
 	if currentIndex == len(i)-1 {
 		return true
@@ -71,6 +76,8 @@ func shouldAppendAfterTag(i [][]int, closingLoc int, currentIndex int) bool {
 	}
 	return true
 }
+
+// format applies styles to the splitted text provided by the splitTags function.
 func format(s *formattedTxt) string {
 	splits := splitTags(s.t)
 	haveNested := regexp.MustCompile(openingTagRegex)

@@ -44,6 +44,7 @@ var styles map[string]uint = map[string]uint{
 	"bg.white":      47,
 }
 
+// hex2rgb change hex string to rgb
 func hex2rgb(hex string) (rgb, error) {
 	var RGB rgb
 	values, err := strconv.ParseUint(string(hex), 16, 32)
@@ -59,6 +60,7 @@ func hex2rgb(hex string) (rgb, error) {
 	return RGB, nil
 }
 
+// getStyles return ANSI style codes each by their key
 func getStyles(AllKeys string) []uint {
 	keys := strings.Split(AllKeys, " ")
 	codes := []uint{}
@@ -84,15 +86,15 @@ func getStyles(AllKeys string) []uint {
 				continue
 			}
 			codes = append(codes, 48, 2, c.red, c.green, c.blue)
-
 		}
-
 		if v, ok := styles[key]; ok {
 			codes = append(codes, v)
 		}
 	}
 	return codes
 }
+
+// applyStyles takes string and the styles should be applied to it and return formatted string.
 func applyStyles(s string, styles []uint) string {
 	styleCodes := []string{"["}
 	for i, code := range styles {
@@ -105,6 +107,9 @@ func applyStyles(s string, styles []uint) string {
 	styleCodes = append(styleCodes, "m")
 	return escapeANSI(strings.Join(styleCodes, "") + s)
 }
+
+// escapeANSI add ansi escape code to the string dependent on the OS that runs on
+// some OS have different escape codes for UNIX systems it's \033 while on windows it's ESC[.
 func escapeANSI(s string) string {
 	escapeCode := "\033"
 	if runtime.GOOS == "windows" {
