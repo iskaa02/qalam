@@ -23,9 +23,9 @@ func Sprintf(f string, a ...interface{}) string {
 	return format(&formattedTxt{t: s})
 }
 
-// GetEmoji takes an emoji name and return that emoji.
+// Emoji takes an emoji name and return that emoji.
 // returns "" when emoji not found
-func GetEmoji(e string) string {
+func Emoji(e string) string {
 	return emojisMap[e]
 }
 

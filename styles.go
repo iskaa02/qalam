@@ -26,6 +26,7 @@ var styles map[string]uint = map[string]uint{
 	"blink":         5,
 	"inverted":      7,
 	"strikethrough": 9,
+	"s":             9,
 	"black":         30,
 	"bg.black":      40,
 	"red":           31,
