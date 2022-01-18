@@ -20,8 +20,8 @@ func main(){
 |i/italic|*italic text*|
 |u/underline|underline text|
 |s/strikethrough|~~strikethrough text~~|
-|#(hexcode)|change the color|
-|bg#(hexcode)|change the background color|
+|#hexcode|change the color|
+|bg#hexcode|change the background color|
 |red|change the color to red|
 |yellow|change the color to yellow|
 |magenta|change the color to magenta|
