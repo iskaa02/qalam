@@ -64,10 +64,31 @@ You can use get emoji function to return an emoji
 // returns '🍎'
 qalam.Emoji("red_apple")
 ```
+## Gradients
+### Import
+```go
+import "github.com/iskaa02/qalam/gradient"
+```
+
+### Usage
+```go
+g,err:=gradient.NewGradient("cyan","red")
+// if the passed colors are not valid an error is returned
+// supports all css valid colors
+if err != nil{
+}
+g.Apply("Example gradient from Cyan to Red")
+```
+outputs the following
+![gradient Example]("./gradient/example_1")
+
+For more examples  [checkout this](https://github.com/iskaa02/qalam/blob/main/gradient/README.MD) 
+
+##
 ### What does the Qalam mean
 Qalam in Arabic means pencil
+
 ##
 ### Compatibility 
 ANSI work a bit different depending on the operating system,
 this implementation should work for MacOS, Linux and Windows, Although it's only been tested on Linux.
-

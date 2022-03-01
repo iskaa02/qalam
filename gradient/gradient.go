@@ -1,6 +1,7 @@
 package gradient
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/iskaa02/qalam"
@@ -48,6 +49,11 @@ type Gradient struct {
 // Apply Gradinet to provided string
 func (g Gradient) Apply(s string) string {
 	return applyGradient(s, g.gradient, g.styles...)
+}
+
+// Apply Gradient to string and print it
+func (g Gradient) Print(s string) {
+	fmt.Print(g.Apply(s))
 }
 
 // Mutline Apply gradient to mutline string
