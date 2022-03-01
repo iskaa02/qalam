@@ -1,6 +1,6 @@
 # Qalam ✏️
 Qalam is a Go library for easy terminal styling.
-![Example for what qalam can do](./qalam_example.png) 
+![Example for what qalam can do](./doc/images/qalam_example.png) 
 
 ## Installation
 ```bash
@@ -80,7 +80,7 @@ if err != nil{
 g.Apply("Example gradient from Cyan to Red")
 ```
 outputs the following
-![gradient Example]("./gradient/example_1")
+![gradient Example]("./doc/images/example_1")
 
 For more examples  [checkout this](https://github.com/iskaa02/qalam/blob/main/gradient/README.MD) 
 
