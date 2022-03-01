@@ -9,6 +9,7 @@ if err != nil{
 g.Print("Example gradient from Cyan to Red")
 ```
 outputs the following
+
 ![gradient Example](../doc/images/gradient_example1.png)
 ### Methods
 - `Apply()`
