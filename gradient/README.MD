@@ -9,7 +9,7 @@ if err != nil{
 g.Print("Example gradient from Cyan to Red")
 ```
 outputs the following
-![gradient Example](./doc/images/gradient_example_1.png)
+![gradient Example](../doc/images/gradient_example1.png)
 ### Methods
 - `Apply()`
 Apply the gradient without printing
@@ -80,7 +80,7 @@ g, _ := gradient.NewGradientBuilder().
 	Build()
 g.Print("Gradient Example with Extra styles")
 ```
-![gradient with extra style example](./doc/images/extrastyles_example.png)
+![gradient with extra style example](../doc/images/extrastyles_example.png)
 
 ### More
 - [Domain & Color Position](https://github.com/mazznoer/colorgrad#domain--color-position)
