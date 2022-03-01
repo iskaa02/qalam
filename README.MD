@@ -80,7 +80,8 @@ if err != nil{
 g.Apply("Example gradient from Cyan to Red")
 ```
 outputs the following
-![gradient Example]("./doc/images/example_1")
+
+![gradient Example](./doc/images/gradient_example1.png)
 
 For more examples  [checkout this](https://github.com/iskaa02/qalam/blob/main/gradient/README.MD) 
 
