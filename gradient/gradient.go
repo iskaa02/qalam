@@ -1,8 +1,9 @@
-package qalam
+package gradient
 
 import (
 	"strings"
 
+	"github.com/iskaa02/qalam"
 	"github.com/mazznoer/colorgrad"
 )
 
@@ -77,12 +78,12 @@ func (g Gradient) Mutline(s string) string {
 		for _, char := range s {
 			if char == ' ' && shouldSkipSpace {
 				styles := strings.Join(g.styles, " ")
-				res += Style(string(char), styles)
+				res += qalam.Style(string(char), styles)
 				continue
 			}
 			hex := g.gradient.At(i).Hex()
 			styles := strings.Join(g.styles, " ") + " " + hex
-			res += Style(string(char), styles)
+			res += qalam.Style(string(char), styles)
 			i += diff
 		}
 		result = append(result, res)
@@ -108,13 +109,25 @@ func applyGradient(s string, grad colorgrad.Gradient, otherStyle ...string) stri
 	for _, char := range s {
 		if char == ' ' && shouldSkipSpace {
 			styles := strings.Join(otherStyle, " ")
-			res += Style(string(char), styles)
+			res += qalam.Style(string(char), styles)
 			continue
 		}
 		hex := grad.At(i).Hex()
 		styles := strings.Join(otherStyle, " ") + " " + hex
-		res += Style(string(char), styles)
+		res += qalam.Style(string(char), styles)
 		i += diff
 	}
 	return res
+}
+
+func doesIncludeStyle(styles string, includedStyle ...string) bool {
+	brokedStyle := strings.Split(styles, " ")
+	for _, style := range includedStyle {
+		for _, s := range brokedStyle {
+			if s == style {
+				return true
+			}
+		}
+	}
+	return false
 }

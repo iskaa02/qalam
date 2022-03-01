@@ -118,15 +118,3 @@ func escapeANSI(s string) string {
 	}
 	return escapeCode + s + escapeCode + "[0m"
 }
-
-func doesIncludeStyle(styles string, includedStyle ...string) bool {
-	brokedStyle := strings.Split(styles, " ")
-	for _, style := range includedStyle {
-		for _, s := range brokedStyle {
-			if s == style {
-				return true
-			}
-		}
-	}
-	return false
-}

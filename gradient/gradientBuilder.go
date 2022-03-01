@@ -1,4 +1,4 @@
-package qalam
+package gradient
 
 import (
 	"image/color"
