@@ -77,7 +77,7 @@ g,err:=gradient.NewGradient("cyan","red")
 // supports all css valid colors
 if err != nil{
 }
-g.Apply("Example gradient from Cyan to Red")
+g.Print("Example gradient from Cyan to Red")
 ```
 outputs the following
 
