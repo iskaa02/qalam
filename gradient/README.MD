@@ -1,4 +1,8 @@
 # Gradient
+### Installation
+```
+go get github.com/iskaa02/qalam/gradient
+```
 ### Usage
 ```go
 g,err:=gradient.NewGradient("cyan","red")
