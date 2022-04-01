@@ -2,7 +2,6 @@ package qalam
 
 import (
 	"fmt"
-	"runtime"
 	"strconv"
 	"strings"
 )
@@ -109,12 +108,7 @@ func applyStyles(s string, styles []uint) string {
 	return escapeANSI(strings.Join(styleCodes, "") + s)
 }
 
-// escapeANSI add ansi escape code to the string dependent on the OS that runs on
-// some OS have different escape codes for UNIX systems it's \033 while on windows it's ESC[.
 func escapeANSI(s string) string {
 	escapeCode := "\033"
-	if runtime.GOOS == "windows" {
-		escapeCode = "ESC["
-	}
 	return escapeCode + s + escapeCode + "[0m"
 }

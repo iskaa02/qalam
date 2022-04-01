@@ -86,10 +86,10 @@ outputs the following
 For more examples  [checkout this](https://github.com/iskaa02/qalam/blob/main/gradient/README.MD) 
 
 ##
+### Windows
+If you're on Windows, use [Windows Terminal](https://github.com/microsoft/terminal) instead of cmd.exe.
+
+##
 ### What does the Qalam mean
 Qalam in Arabic means pencil
 
-##
-### Compatibility 
-ANSI work a bit different depending on the operating system,
-this implementation should work for MacOS, Linux and Windows, Although it's only been tested on Linux.
