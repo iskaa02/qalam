@@ -19,14 +19,7 @@ func Printf(f string, a ...interface{}) {
 // Sprintf takes a BBcode string and return the formatted text.
 func Sprintf(f string, a ...interface{}) string {
 	s := fmt.Sprintf(f, a...)
-	s = findEmoji(s)
 	return format(&formattedTxt{t: s})
-}
-
-// Emoji takes an emoji name and return that emoji.
-// returns "" when emoji not found
-func Emoji(e string) string {
-	return emojisMap[e]
 }
 
 // Style format text with provided codes.
