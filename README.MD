@@ -238,13 +238,13 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Notes
 
-## Windows Support
+### Windows Support
 
 If you're on Windows, use [Windows Terminal](https://github.com/microsoft/terminal) instead of cmd.exe.
 
 #
 
-## What does the Qalam mean
+### What does the Qalam mean
 
 Qalam in Arabic means pencil
 
