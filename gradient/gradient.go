@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/iskaa02/qalam"
+	qalam "github.com/iskaa02/qalam/internal/styles"
 	"github.com/mazznoer/colorgrad"
 )
 
