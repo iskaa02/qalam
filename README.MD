@@ -72,6 +72,10 @@
 
 Qalam is A terminal Styling library built for Go to make building cool-looking CLIs easier
 
+### IMPORTANT
+
+The project still in early state it might have breaking changes in the future
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Getting Started
