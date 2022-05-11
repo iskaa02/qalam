@@ -68,7 +68,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](./doc/images/qalam_example.png)
+![Example for what qalam can do](./doc/images/qalam_example.png)
 
 Qalam is A terminal Styling library built for Go to make building cool-looking CLIs easier
 
